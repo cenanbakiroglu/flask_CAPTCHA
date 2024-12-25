@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+</head>
+<body>
+    <table>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+         <tr>
+            <td>   <label for="username">Kullanıcı Adı:</label>  </td>
+            <td> {{ form.username }}  </td>
+         </tr>
+        <tr>
+            <td>  <label for="password">Parola:</label> </td>
+            <td>  {{ form.password }} </td>
+        </tr>
+        <tr>
+            <td> <img id="captcha-image" src="{{ url_for('generate_captcha') }}" alt="CAPTCHA Resmi"></td>
+            <td><center> <button type="button" onclick="refreshCaptcha()">Yenile</button> </center> </td>
+        </tr>
+        <tr>
+            <td> <label for="captcha">Kod:</label> </td>
+            <td> {{form.kod}} </td>
+        </tr>
+        <tr>
+            <td colspan="2">{{ form.submit }} <td>
+        </tr>
+        </form>
+
+        </table>
+
+        <script>
+        // CAPTCHA resmini yenilemek için JavaScript fonksiyonu
+        function refreshCaptcha() {
+            const captchaImage = document.getElementById('captcha-image');
+            // Benzersiz bir değer ekleyerek tarayıcı önbelleğini önleriz
+            captchaImage.src = "{{ url_for('generate_captcha') }}" + "?t=" + Date.now();
+        }
+    </script>
+</body>
+</html>
