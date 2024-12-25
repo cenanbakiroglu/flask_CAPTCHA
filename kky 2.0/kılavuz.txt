@@ -1,0 +1,6 @@
+rol tabanlı login mekanizması
+login paneli ve karşılama ekranı
+
+parola hash entegrasyonu
+brute force saldırısı koruması
+csrf saldırısı korunması (csrf token)
