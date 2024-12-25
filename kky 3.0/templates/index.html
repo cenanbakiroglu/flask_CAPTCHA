@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPTCHA Örneği</title>
+    <script>
+        function refreshCaptcha() {
+            const captchaImage = document.getElementById('captchaImage');
+            captchaImage.src = '/captcha?' + new Date().getTime(); // Yeni bir zaman damgası ekle
+        }
+    </script>
+</head>
+<body>
+    <form action="/verify" method="POST">
+        <div>
+            <img id="captchaImage" src="/captcha" alt="Captcha" style="display:inline-block; vertical-align:middle;">
+            <button type="button" onclick="refreshCaptcha()" style="display:inline-block; vertical-align:middle;">Yenile</button>
+        </div>
+        <br>
+        <label for="captcha">Doğrulama Kodu:</label>
+        <input type="text" id="captcha" name="captcha" required>
+        <button type="submit">Gönder</button>
+    </form>
+</body>
+</html>

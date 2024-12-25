@@ -1,0 +1,19 @@
+1 ) Kullanıcı giriş yapabiliyor mu?
+    -Evet giriş yapılabiliyor.
+2 ) CHAPTCHA, belirli şifre denemesinden sonra aktfileşiyor mu?
+    -Evet aktifleşiyor.
+3 ) CHAPTCHA aktifleştikten sonra boş geçilebilir mi?
+    -Hayır boş geçilemez.
+4 ) Şifre ve CHAPTCHA doğru ise giriş yapılabiliyor mu?
+    -Evet her iki veri doğru olursa giriş yapılabiliyor.
+5 ) Şifre doğru, CHAPTCHA yanlış ise giriş yapıyor mu?
+    -Hayır, şifre doğru, CHAPTCHA yanlış ise hata mesajı ekrana veriliyor. 
+6 ) Şifre yanlış, CHAPTCHA doğru ise giriş yapılıyor mu?
+    -Hayır, şifre yanlış, CHAPTCHA doğru ise hata mesajı ekrana veriliyor.
+7 ) Max deneme sayısı çalışıyor mu?
+    -Evet, maksimum deneme sayısına ulaşınca 15 dakika işlem kısıtı konulmkatadır.
+8 ) Giriş yapıldıktan sonra login ekranına dönülünce CHAPTCHA değişiyor mu?
+    -Öncelikle Google tarafından 'Yeniden Form Gönderme İşlemini Onayla' ekranı karşımıza geliyor bu ekranda sayfayı yenilersek bir uyarı mesajı veriyor ve devam seçeneğini seçersek giriş sağlanmıyor.
+9 ) CHAPTCHA yenile butonu çalışıyor mu?
+    -Evet, CHAPTCHA yenileme butonu çalışıyor ve giriş sağlanabiliyor.
+10) ...

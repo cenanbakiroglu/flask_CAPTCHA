@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+</head>
+<body >
+    
+    <table>
+        
+        <form method="POST">
+            
+            {{ form.hidden_tag() }}
+            
+            <tr>
+                <td width="150">   <label for="username">Kullanıcı Adı:</label>  </td>
+                <td> {{ form.username }}  </td>
+            </tr>
+            <tr>
+                <td width="150">  <label for="password">Parola:</label> </td>
+                <td>  {{ form.password }} </td>
+            </tr>
+            {% if captcha_flag %}
+            <tr>
+                <td width="150"> <img id="captcha-image" src="{{ url_for('generate_captcha') }}" alt="CAPTCHA Resmi"></td>
+                <td><center> <button type="button" onclick="refreshCaptcha()">Yenile</button> </center> </td>
+            </tr>
+            <tr>
+                <td width="150"> <label for="captcha">Kod:</label> </td>
+                <td> {{form.kod}} </td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td colspan="2">{{ form.submit }} </td>
+                </tr>
+                
+            </form>
+            
+        </table>
+        <p style="color: red;">{{ message }}</p>
+        
+        <script>
+            // CAPTCHA resmini yenilemek için JavaScript fonksiyonu
+            function refreshCaptcha() 
+            {
+                const captchaImage = document.getElementById('captcha-image');
+                // Benzersiz bir değer ekleyerek tarayıcı önbelleğini önleriz
+                captchaImage.src = "{{ url_for('generate_captcha') }}" + "?t=" + Date.now();
+
+            }
+
+            // Sayfa geri gelindiğinde CAPTCHA'yı yenile
+            window.onpageshow = function(event) 
+            {
+                if (event.persisted) {
+                    refreshCaptcha();
+                }
+            };
+        </script>
+</body>
+</html>
